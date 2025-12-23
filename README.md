@@ -81,8 +81,8 @@ npm install
 ```sh
 # Create .env file with:
 PRIVATE_OPENAI_API_KEY=your_openai_api_key
-RESEND_API_KEY=your_resend_api_key
-PUBLIC_DATABASE_URL=your_database_url
+PRIVATE_RESEND_API_KEY=your_resend_api_key
+PRIVATE_DATABASE_URL=your_database_url
 ```
 
 1. Start the development server:
