@@ -4,12 +4,14 @@
 	interface Props {
 		children: Snippet;
 		class?: string;
+		testid?: string;
 	}
 
-	let { children, class: className = '' }: Props = $props();
+	let { children, class: className = '', testid = '' }: Props = $props();
 </script>
 
 <div
+	{...testid ? { 'data-testid': testid } : {}}
 	class="group relative glass overflow-hidden rounded-2xl border border-white/10 p-8 transition-all duration-300 hover:border-blue-500/30 {className}"
 >
 	<div

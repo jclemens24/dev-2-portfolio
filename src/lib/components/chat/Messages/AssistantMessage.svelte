@@ -1,17 +1,18 @@
 <script lang="ts">
-	import type { Message } from '$lib/types';
-	import dayjs from 'dayjs';
-	import isToday from 'dayjs/plugin/isToday';
-	import isYesterday from 'dayjs/plugin/isYesterday';
-	import localizedFormat from 'dayjs/plugin/localizedFormat';
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
-	import { formatTimestamp } from '$lib/utils';
 	import ChatBot from '$lib/components/icons/ChatBot.svelte';
 	import Copy from '$lib/components/icons/Copy.svelte';
 	import Voice from '$lib/components/icons/Voice.svelte';
 	import VoiceOff from '$lib/components/icons/VoiceOff.svelte';
-	import Skeleton from './Skeleton.svelte';
+	import type { Message } from '$lib/types';
+	import { formatTimestamp } from '$lib/utils';
+	import dayjs from 'dayjs';
+	import isToday from 'dayjs/plugin/isToday';
+	import isYesterday from 'dayjs/plugin/isYesterday';
+	import localizedFormat from 'dayjs/plugin/localizedFormat';
+
 	import Markdown from './Markdown.svelte';
+	import Skeleton from './Skeleton.svelte';
 
 	dayjs.extend(isToday);
 	dayjs.extend(isYesterday);

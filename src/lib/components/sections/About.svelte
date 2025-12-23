@@ -1,18 +1,18 @@
 <script lang="ts">
+	import FeatureCard from '../common/FeatureCard.svelte';
+	import GlassCard from '../common/GlassCard.svelte';
+	import StatBadge from '../common/StatBadge.svelte';
+	import Tooltip from '../common/Tooltip.svelte';
 	import Basketball from '../icons/Basketball.svelte';
 	import Bicycle from '../icons/Bicycle.svelte';
-	import Education from '../icons/Education.svelte';
 	import Calendar from '../icons/Calendar.svelte';
+	import Education from '../icons/Education.svelte';
 	import FishMultiple from '../icons/FishMultiple.svelte';
-	import Mountain from '../icons/Mountain.svelte';
 	import Location from '../icons/Location.svelte';
+	import Mountain from '../icons/Mountain.svelte';
 	import Running from '../icons/Running.svelte';
 	import User from '../icons/User.svelte';
 	import WorshipChristian from '../icons/WorshipChristian.svelte';
-	import Tooltip from '../common/Tooltip.svelte';
-	import GlassCard from '../common/GlassCard.svelte';
-	import FeatureCard from '../common/FeatureCard.svelte';
-	import StatBadge from '../common/StatBadge.svelte';
 
 	const downloadResume = () => {
 		const link = document.createElement('a');
@@ -28,7 +28,7 @@
 	};
 </script>
 
-<section id="about">
+<section id="about" data-testid="about-section">
 	<div class="absolute inset-0 overflow-hidden">
 		<div
 			class="absolute top-20 left-1/4 h-72 w-72 rounded-full bg-purple-500/5 blur-3xl"
@@ -78,14 +78,16 @@
 					<GlassCard>
 						<div class="my-4 flex items-start justify-between">
 							<div>
-								<h4 class="mb-4 font-bold text-white">
+								<h4 data-testid="education-degree" class="mb-4 font-bold text-white">
 									Bachelor of Science in Information Sciences & Technologies
 								</h4>
-								<p class="mb-4 font-semibold text-blue-400">Penn State University</p>
+								<p data-testid="education-institution" class="mb-4 font-semibold text-blue-400">
+									Penn State University
+								</p>
 							</div>
 							<div class="flex flex-col justify-center gap-2">
 								<StatBadge value="Dean's List" label="6x" gradient={true} />
-								<StatBadge value="3.85" label="GPA" />
+								<StatBadge testid="gpa" value="3.85" label="GPA" />
 							</div>
 						</div>
 						<div class="flex items-stretch gap-4 text-sm text-muted-foreground">
@@ -148,6 +150,7 @@
 						<div class="flex gap-3">
 							<Tooltip content="Download Resume">
 								<button
+									data-testid="download-resume"
 									aria-label="Download Resume"
 									onclick={downloadResume}
 									class="group/btn flex glass items-center gap-2 rounded-xl border border-blue-400/30 px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-500/10"
@@ -170,6 +173,7 @@
 
 							<Tooltip content="Preview Resume">
 								<button
+									data-testid="preview-resume"
 									aria-label="Preview Resume"
 									onclick={previewResume}
 									class="group/preview glass rounded-xl border border-white/10 p-2.5 transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-500/10"

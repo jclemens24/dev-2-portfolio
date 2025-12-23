@@ -3,12 +3,13 @@
 		label: string;
 		value: string;
 		gradient?: boolean;
+		testid?: string;
 	}
 
-	let { label, value, gradient = false }: Props = $props();
+	let { label, value, gradient = false, testid }: Props = $props();
 </script>
 
-<div class="glass rounded-xl p-3 text-center">
+<div class="glass rounded-xl p-3 text-center" {...testid ? { 'data-testid': testid } : {}}>
 	<div
 		class="text-sm font-bold {gradient
 			? 'bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent'

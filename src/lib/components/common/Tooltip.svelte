@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { onDestroy, type Snippet } from 'svelte';
-
 	import DOMPurify from 'dompurify';
-	import type { Instance, SingleTarget } from 'tippy.js';
+	import { type Snippet, onDestroy } from 'svelte';
+	import type { Instance, Placement, SingleTarget } from 'tippy.js';
 	import tippy from 'tippy.js';
-	import type { Placement } from 'tippy.js';
 
 	type Props = {
 		placement?: Placement;

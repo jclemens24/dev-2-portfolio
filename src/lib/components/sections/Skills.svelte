@@ -1,15 +1,26 @@
 <script lang="ts">
+	import type { Component } from 'svelte';
+
 	import GlassCard from '../common/GlassCard.svelte';
-	import PaintBrush from '../icons/PaintBrush.svelte';
-	import Code from '../icons/Code.svelte';
 	import ChatBot from '../icons/ChatBot.svelte';
-	import DevOps from '../icons/DevOps.svelte';
 	import CheckMarkFilled from '../icons/CheckMarkFilled.svelte';
+	import Code from '../icons/Code.svelte';
+	import DevOps from '../icons/DevOps.svelte';
+	import PaintBrush from '../icons/PaintBrush.svelte';
 	import Theatre from '../icons/Theatre.svelte';
 
-	const skillCategories = [
+	interface Skill {
+		title: string;
+		testid: string;
+		icon: Component;
+		color: string;
+		skills: string[];
+	}
+
+	const skillCategories: Skill[] = [
 		{
 			title: 'Frontend Development',
+			testid: 'frontend-development',
 			icon: PaintBrush,
 			color: 'from-purple-400 to-pink-400',
 			skills: [
@@ -26,6 +37,7 @@
 		},
 		{
 			title: 'Backend Development',
+			testid: 'backend-development',
 			icon: Code,
 			color: 'from-blue-400 to-cyan-400',
 			skills: [
@@ -41,30 +53,53 @@
 		},
 		{
 			title: 'AI & Machine Learning',
+			testid: 'ai-machine-learning',
 			icon: ChatBot,
 			color: 'from-cyan-400 to-teal-400',
 			skills: ['LangChain', 'OpenAI', 'RAG', 'Prompt Engineering', 'Vector Databases', 'Pinecone']
 		},
 		{
 			title: 'DevOps & Tools',
+			testid: 'devops-tools',
 			icon: DevOps,
 			color: 'from-orange-400 to-red-400',
 			skills: ['Git', 'Docker', 'CI/CD', 'AWS', 'Vercel', 'Linux', 'Bash', 'Vite']
 		},
 		{
 			title: 'Testing & Quality',
+			testid: 'testing-quality',
 			icon: CheckMarkFilled,
 			color: 'from-green-400 to-emerald-400',
 			skills: ['Vitest', 'Playwright', 'Jest', 'Testing Library', 'Unit Testing', 'E2E Testing']
 		},
 		{
 			title: 'Design & UX',
+			testid: 'design-ux',
 			icon: Theatre,
 			color: 'from-pink-400 to-purple-400',
 			skills: ['Figma', 'UI/UX Design', 'Responsive Design', 'Accessibility', 'Design Systems']
 		}
 	];
 </script>
+
+{#snippet header(skill: Skill)}
+	<div class="mb-6 flex items-center gap-3" data-testid={skill.testid}>
+		<div
+			class="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br {skill.color} text-2xl"
+		>
+			<svelte:component this={skill.icon} className="h-6 w-6 text-white" />
+		</div>
+		<h3 class="text-xl font-bold text-white">{skill.title}</h3>
+	</div>
+{/snippet}
+
+{#snippet pill(skill: string)}
+	<span
+		class="rounded-full bg-white/5 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all duration-300 hover:bg-white/10 hover:text-white"
+	>
+		{skill}
+	</span>
+{/snippet}
 
 <section id="skills" class="relative py-20">
 	<!-- Background Orbs -->
@@ -98,23 +133,12 @@
 			{#each skillCategories as category}
 				<GlassCard hoverColor="blue">
 					<!-- Card Header -->
-					<div class="mb-6 flex items-center gap-3">
-						<div
-							class="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br {category.color} text-2xl"
-						>
-							<svelte:component this={category.icon} className="h-6 w-6 text-white" />
-						</div>
-						<h3 class="text-xl font-bold text-white">{category.title}</h3>
-					</div>
+					{@render header(category)}
 
 					<!-- Skill Pills -->
 					<div class="flex flex-wrap gap-2">
 						{#each category.skills as skill}
-							<span
-								class="rounded-full bg-white/5 px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all duration-300 hover:bg-white/10 hover:text-white"
-							>
-								{skill}
-							</span>
+							{@render pill(skill)}
 						{/each}
 					</div>
 				</GlassCard>

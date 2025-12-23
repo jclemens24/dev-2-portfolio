@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Colors } from '$lib/types';
 	import GlassCard from '$lib/components/common/GlassCard.svelte';
+	import Tooltip from '$lib/components/common/Tooltip.svelte';
 	import DirectLink from '$lib/components/icons/DirectLink.svelte';
 	import GitHub from '$lib/components/icons/GitHub.svelte';
-	import Tooltip from '$lib/components/common/Tooltip.svelte';
+	import type { Colors } from '$lib/types';
 
 	type Project = {
 		title: string;
@@ -32,6 +32,27 @@
 			liveUrl: 'https://spanning-content-tree-v1.cisco.com'
 		},
 		{
+			title: 'SMB Agent Platform',
+			description:
+				'Production-ready multi-agent platform with supervisor architecture and ROI measurement for enterprise content generation.',
+			longDescription:
+				'Enterprise multi-agent system with Phase 5 Quality & Metrics (>300% ROI), Prometheus monitoring, circuit breakers, Redis session management, and MCP server integration. Production-approved with comprehensive Grafana dashboards.',
+			technologies: [
+				'Python',
+				'LangChain',
+				'FastAPI',
+				'Redis',
+				'Prometheus',
+				'Grafana',
+				'Docker',
+				'OAuth2'
+			],
+			category: 'AI/ML',
+			categoryColor: 'cyan',
+			githubUrl: 'https://github.com/copresto/SMB-Support-Agent',
+			featured: true
+		},
+		{
 			title: 'Portfolio Website',
 			description: 'Modern portfolio with AI-powered chat assistant and interactive UI.',
 			longDescription:
@@ -54,11 +75,19 @@
 			featured: false
 		},
 		{
-			title: 'DevOps Automation Suite',
+			title: 'DevOps Automation Suite (CodeShift)',
 			description: 'CI/CD pipeline automation and deployment monitoring tools.',
 			longDescription:
 				'Streamlined deployment processes with automated testing, monitoring, and rollback capabilities.',
-			technologies: ['Docker', 'GitHub Actions', 'AWS', 'Terraform', 'Python'],
+			technologies: [
+				'Docker',
+				'GitHub Actions',
+				'Jenkins',
+				'CloudBees',
+				'Python',
+				'OpenShift CAE',
+				'Kubernetes'
+			],
 			category: 'DevOps',
 			categoryColor: 'orange',
 			featured: false
@@ -73,6 +102,54 @@
 			categoryColor: 'green',
 			githubUrl: 'https://github.com/jclemens24/typeorm-fastify-plugin',
 			featured: true
+		},
+		{
+			title: 'SMBDev API Server',
+			description: 'Web scraping and documentation management tool for Cisco product articles.',
+			longDescription:
+				'Full-stack application for scraping and managing Cisco product documentation articles. Built with FastAPI (Python) backend and SvelteKit (TypeScript) frontend.',
+			technologies: ['SvelteKit', 'FastAPI', 'Python', 'TypeScript', 'BeautifulSoup'],
+			category: 'Full Stack Development',
+			categoryColor: 'blue',
+			githubUrl: 'https://github.com/Cisco-DES/smbdev-api-server',
+			featured: false
+		},
+		{
+			title: 'CDT Transform App',
+			description:
+				'Document transformation tool that converts DOCX files into deployment-ready HTML packages.',
+			longDescription:
+				'Internal build tool that parses DOCX files, extracts content sections, images, and videos, then packages everything into HTML format with assets bundled for easy deployment.',
+			technologies: ['SvelteKit', 'Node.js', 'TypeScript', 'HTML Parser', 'File Processing'],
+			category: 'Web Development',
+			categoryColor: 'orange',
+			liveUrl: 'https://cdt-transformer-app-v1-converter.cisco.com/',
+			githubUrl: 'https://github.com/Cisco-DES/cdt-transform-app-v1-converter',
+			featured: false
+		},
+		{
+			title: 'Harbor Elements Svelte',
+			description:
+				'TypeScript compiler that transforms Cisco Harbor Web Components into Svelte components.',
+			longDescription:
+				'Automated build tool that generates strongly-typed Svelte wrappers for Harbor Design System web components, providing Svelte 5 runes, snippets for slots, and full IDE autocomplete support.',
+			technologies: ['TypeScript', 'Node.js', 'Svelte 5', 'Web Components', 'Stencil'],
+			category: 'Plugin',
+			categoryColor: 'green',
+			githubUrl: 'https://github.com/jorcleme/elements-svelte',
+			featured: true
+		},
+		{
+			title: 'Hardened Node Alpine',
+			description:
+				'Security-hardened Docker base image with Cisco CA bundle compliance for enterprise Node.js apps.',
+			longDescription:
+				'PSB SEC-509-CA compliant Alpine Linux container with Node.js compiled against Cisco Core CA Bundle. Minimal footprint hardened image based on Cloud9 containers for secure deployment of Node.js applications to Cisco infrastructure.',
+			technologies: ['Docker', 'Alpine Linux', 'Node.js', 'Security', 'DevOps'],
+			category: 'DevOps',
+			categoryColor: 'orange',
+			githubUrl: 'https://github.com/jorcleme/hardened-node-alpine',
+			featured: false
 		}
 	]);
 
@@ -110,11 +187,16 @@
 		<!-- Featured Projects -->
 		<div class="mb-16 grid gap-8 md:grid-cols-2">
 			{#each featuredProjects as project}
-				<GlassCard hoverColor={project.categoryColor} class="group flex flex-col">
+				<GlassCard
+					hoverColor={project.categoryColor}
+					class="group flex flex-col"
+					testid="featured-project-{project.title.toLowerCase().replace(/\s+/g, '-')}"
+				>
 					<!-- Category Badge -->
 					<div class="mb-4 flex items-center justify-between">
 						<span
 							class="rounded-full border border-{project.categoryColor}-400/30 bg-{project.categoryColor}-500/20 px-3 py-1 text-xs font-medium text-{project.categoryColor}-400"
+							data-testid="project-category"
 						>
 							{project.category}
 						</span>
@@ -127,6 +209,7 @@
 										rel="noopener noreferrer"
 										class="rounded-lg bg-white/5 p-2 transition-all hover:bg-white/10"
 										aria-label="View on GitHub"
+										data-testid="project-github-link"
 									>
 										<GitHub className="h-5 w-5 text-gray-400 transition-colors hover:text-white" />
 									</a>
@@ -140,6 +223,7 @@
 										rel="noopener noreferrer"
 										class="rounded-lg bg-white/5 p-2 transition-all hover:bg-white/10"
 										aria-label="View Live Project"
+										data-testid="project-live-link"
 									>
 										<DirectLink
 											className="h-5 w-5 text-gray-400 transition-colors hover:text-white"
@@ -151,20 +235,30 @@
 					</div>
 
 					<!-- Project Title -->
-					<h3 class="mb-3 text-2xl font-bold text-white">{project.title}</h3>
+					<h3 class="mb-3 text-2xl font-bold text-white" data-testid="project-title">
+						{project.title}
+					</h3>
 
 					<!-- Description -->
-					<p class="mb-4 leading-relaxed text-gray-300">{project.description}</p>
+					<p class="mb-4 leading-relaxed text-gray-300" data-testid="project-description">
+						{project.description}
+					</p>
 
 					{#if project.longDescription}
-						<p class="mb-4 text-sm leading-relaxed text-gray-400">{project.longDescription}</p>
+						<p
+							class="mb-4 text-sm leading-relaxed text-gray-400"
+							data-testid="project-long-description"
+						>
+							{project.longDescription}
+						</p>
 					{/if}
 
 					<!-- Technologies -->
-					<div class="mt-auto flex flex-wrap gap-2">
+					<div class="mt-auto flex flex-wrap gap-2" data-testid="project-technologies">
 						{#each project.technologies as tech}
 							<span
 								class="rounded-lg bg-white/5 px-3 py-1 text-xs font-medium text-gray-400 transition-colors hover:bg-white/10 hover:text-white"
+								data-testid="project-tech-{tech.toLowerCase().replace(/\s+/g, '-')}"
 							>
 								{tech}
 							</span>
@@ -177,14 +271,21 @@
 		<!-- Other Projects -->
 		{#if otherProjects.length > 0}
 			<div>
-				<h3 class="mb-8 text-2xl font-bold text-white">Other Projects</h3>
+				<h3 class="mb-8 text-2xl font-bold text-white" data-testid="other-projects-header">
+					Other Projects
+				</h3>
 				<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
 					{#each otherProjects as project}
-						<GlassCard hoverColor={project.categoryColor} class="flex flex-col">
+						<GlassCard
+							hoverColor={project.categoryColor}
+							class="flex flex-col"
+							testid="other-project-{project.title.toLowerCase().replace(/\s+/g, '-')}"
+						>
 							<!-- Header -->
 							<div class="mb-3 flex items-start justify-between">
 								<span
 									class="rounded-full border border-{project.categoryColor}-400/30 bg-{project.categoryColor}-500/20 px-2 py-1 text-xs font-medium text-{project.categoryColor}-400"
+									data-testid="project-category"
 								>
 									{project.category}
 								</span>
@@ -196,6 +297,7 @@
 											rel="noopener noreferrer"
 											class="rounded-lg bg-white/5 p-1.5 transition-all hover:bg-white/10"
 											aria-label="View on GitHub"
+											data-testid="project-github-link"
 										>
 											<GitHub
 												className="h-4 w-4 text-gray-400 transition-colors hover:text-white"
@@ -209,6 +311,7 @@
 											rel="noopener noreferrer"
 											class="rounded-lg bg-white/5 p-1.5 transition-all hover:bg-white/10"
 											aria-label="View Live Project"
+											data-testid="project-live-link"
 										>
 											<DirectLink
 												className="h-4 w-4 text-gray-400 transition-colors hover:text-white"
@@ -219,15 +322,25 @@
 							</div>
 
 							<!-- Title -->
-							<h4 class="mb-2 text-lg font-bold text-white">{project.title}</h4>
+							<h4 class="mb-2 text-lg font-bold text-white" data-testid="project-title">
+								{project.title}
+							</h4>
 
 							<!-- Description -->
-							<p class="mb-4 text-sm leading-relaxed text-gray-300">{project.description}</p>
+							<p
+								class="mb-4 text-sm leading-relaxed text-gray-300"
+								data-testid="project-description"
+							>
+								{project.description}
+							</p>
 
 							<!-- Technologies -->
-							<div class="mt-auto flex flex-wrap gap-1.5">
+							<div class="mt-auto flex flex-wrap gap-1.5" data-testid="project-technologies">
 								{#each project.technologies as tech}
-									<span class="rounded bg-white/5 px-2 py-0.5 text-xs text-gray-400">
+									<span
+										class="rounded bg-white/5 px-2 py-0.5 text-xs text-gray-400"
+										data-testid="project-tech-{tech.toLowerCase().replace(/\s+/g, '-')}"
+									>
 										{tech}
 									</span>
 								{/each}

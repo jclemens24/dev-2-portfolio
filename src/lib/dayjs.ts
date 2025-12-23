@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-
 // Import all locales
 import 'dayjs/locale/af';
 import 'dayjs/locale/am';
@@ -24,6 +23,7 @@ import 'dayjs/locale/el';
 import 'dayjs/locale/en';
 import 'dayjs/locale/eo';
 import 'dayjs/locale/es';
+import 'dayjs/locale/et';
 import 'dayjs/locale/eu';
 import 'dayjs/locale/fa';
 import 'dayjs/locale/fi';
@@ -99,6 +99,5 @@ import 'dayjs/locale/uz';
 import 'dayjs/locale/vi';
 import 'dayjs/locale/yo';
 import 'dayjs/locale/zh';
-import 'dayjs/locale/et';
 
 export default dayjs;

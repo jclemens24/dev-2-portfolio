@@ -1,17 +1,19 @@
 <script lang="ts">
-	import type { FileItem, Message as MessageType } from '$lib/types';
-	import { onMount, tick } from 'svelte';
 	import { quintOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
+
+	import type { FileItem, Message as MessageType } from '$lib/types';
+	import { sendChatMessage, streamChatResponse, uploadFile } from '$lib/utils/chat';
 	import { flyAndScale } from '$lib/utils/transitions';
+	import { onMount, tick } from 'svelte';
 	import { v4 as uuidv4 } from 'uuid';
-	import { sendChatMessage, uploadFile, streamChatResponse } from '$lib/utils/chat';
+
+	import Tooltip from '../common/Tooltip.svelte';
 	import ChatBot from '../icons/ChatBot.svelte';
+	import Close from '../icons/Close.svelte';
 	import Download from '../icons/Download.svelte';
 	import Maximize from '../icons/Maximize.svelte';
-	import Close from '../icons/Close.svelte';
 	import Send from '../icons/Send.svelte';
-	import Tooltip from '../common/Tooltip.svelte';
 	import Messages from './Messages.svelte';
 	import Suggestions from './Suggestions.svelte';
 

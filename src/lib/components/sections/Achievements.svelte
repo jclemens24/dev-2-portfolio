@@ -83,20 +83,26 @@
 		<!-- Achievements Grid -->
 		<div class="grid gap-8 md:grid-cols-2">
 			{#each achievements as achievement}
-				<FeatureCard>
+				<FeatureCard testid="achievement-{achievement.type}">
 					<!-- Achievement Header -->
 					<div class="mb-6 flex items-start gap-4">
 						<!-- Icon -->
 						<div
 							class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br from-yellow-500/20 to-yellow-600/20 text-4xl"
+							data-testid="achievement-icon"
 						>
 							{achievement.icon}
 						</div>
 
 						<!-- Title and Subtitle -->
 						<div class="flex-1">
-							<h3 class="mb-1 text-2xl font-bold text-white">{achievement.title}</h3>
-							<p class="text-sm font-semibold text-{achievement.color}-400">
+							<h3 class="mb-1 text-2xl font-bold text-white" data-testid="achievement-title">
+								{achievement.title}
+							</h3>
+							<p
+								class="text-sm font-semibold text-{achievement.color}-400"
+								data-testid="achievement-subtitle"
+							>
 								{achievement.subtitle}
 							</p>
 						</div>
@@ -106,18 +112,30 @@
 					<div class="mb-4 space-y-1">
 						<div class="flex items-center gap-2">
 							<Trophy className="h-4 w-4 text-gray-400" />
-							<p class="text-sm font-medium text-muted-foreground">{achievement.organization}</p>
+							<p class="text-sm font-medium text-muted-foreground" data-testid="achievement-org">
+								{achievement.organization}
+							</p>
 						</div>
-						<p class="text-xs text-gray-400">{achievement.date}</p>
+						<p class="text-xs text-gray-400" data-testid="achievement-date">{achievement.date}</p>
 					</div>
 
 					<!-- Description -->
-					<p class="mb-6 leading-relaxed text-muted-foreground">{achievement.description}</p>
+					<p
+						class="mb-6 leading-relaxed text-muted-foreground"
+						data-testid="achievement-description"
+					>
+						{achievement.description}
+					</p>
 
 					<!-- Highlights -->
 					<div class="space-y-3">
-						<h4 class="text-sm font-semibold tracking-wide text-gray-400 uppercase">Key Impact</h4>
-						<div class="space-y-2">
+						<h4
+							class="text-sm font-semibold tracking-wide text-gray-400 uppercase"
+							data-testid="achievement-highlights-header"
+						>
+							Key Impact
+						</h4>
+						<div class="space-y-2" data-testid="achievement-highlights">
 							{#each achievement.highlights as highlight}
 								<div class="flex items-start gap-3">
 									<div class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-500"></div>
@@ -132,18 +150,20 @@
 
 		<!-- Additional Recognition Section -->
 		<div class="mt-12">
-			<GlassCard class="text-center">
-				<h3 class="mb-4 text-xl font-bold text-white">Other Recognitions</h3>
+			<GlassCard class="text-center" testid="other-recognitions">
+				<h3 class="mb-4 text-xl font-bold text-white" data-testid="other-recognitions-header">
+					Other Recognitions
+				</h3>
 				<div class="flex flex-wrap items-center justify-center gap-6">
-					<div class="flex items-center gap-2 text-gray-300">
+					<div class="flex items-center gap-2 text-gray-300" data-testid="recognition-deans-list">
 						<span class="text-2xl">🎓</span>
 						<span class="text-sm">Dean's List (6x) - Penn State</span>
 					</div>
-					<div class="flex items-center gap-2 text-gray-300">
+					<div class="flex items-center gap-2 text-gray-300" data-testid="recognition-gpa">
 						<span class="text-2xl">⭐</span>
 						<span class="text-sm">3.85 GPA - Information Sciences</span>
 					</div>
-					<div class="flex items-center gap-2 text-gray-300">
+					<div class="flex items-center gap-2 text-gray-300" data-testid="recognition-excellence">
 						<span class="text-2xl">🚀</span>
 						<span class="text-sm">Fortune 500 Engineering Excellence</span>
 					</div>

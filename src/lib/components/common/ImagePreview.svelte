@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
 
 	interface Props {
 		src: string;
@@ -23,7 +23,8 @@
 	let isHovered = $state(false);
 	let touchTimeout: ReturnType<typeof setTimeout> | null = null;
 
-	function handleTouchStart() {
+	function handleTouchStart(e: TouchEvent & { currentTarget: EventTarget & HTMLDivElement }) {
+		e.preventDefault();
 		isHovered = true;
 		// Auto-hide after 3 seconds on touch devices
 		touchTimeout = setTimeout(() => {
@@ -31,7 +32,7 @@
 		}, 3000);
 	}
 
-	function handleTouchEnd() {
+	function handleTouchEnd(e: TouchEvent & { currentTarget: EventTarget & HTMLDivElement }) {
 		if (touchTimeout) {
 			clearTimeout(touchTimeout);
 		}

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import GlassCard from '$lib/components/common/GlassCard.svelte';
-	import Mail from '$lib/components/icons/Mail.svelte';
 	import GitHub from '$lib/components/icons/GitHub.svelte';
 	import Linkedin from '$lib/components/icons/Linkedin.svelte';
+	import Mail from '$lib/components/icons/Mail.svelte';
 
 	let formData = $state({
 		name: '',
@@ -129,7 +129,11 @@
 
 							<!-- Email Input -->
 							<div>
-								<label for="email" class="mb-2 block text-sm font-medium text-gray-300">
+								<label
+									for="email"
+									data-testid="email-label"
+									class="mb-2 block text-sm font-medium text-gray-300"
+								>
 									Your Email
 								</label>
 								<input
@@ -257,6 +261,7 @@
 						{#each socialLinks as link}
 							<a
 								href={link.href}
+								data-testid={'social-link-' + link.name.toLowerCase()}
 								target="_blank"
 								rel="noopener noreferrer"
 								class="group flex items-center gap-4 rounded-lg border border-white/5 bg-white/5 p-4 transition-all duration-300 hover:border-{link.color}-500/30 hover:bg-white/10"

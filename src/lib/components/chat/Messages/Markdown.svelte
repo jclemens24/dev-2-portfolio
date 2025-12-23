@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { marked } from 'marked';
 	import DOMPurify from 'dompurify';
+	import { marked } from 'marked';
 
 	type Props = {
 		content: string;

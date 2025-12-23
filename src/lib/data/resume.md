@@ -138,6 +138,70 @@ Coffee E-Commerce Web App (Lead Developer)
 
 ---
 
+## Additional Projects
+
+### SMB Agent Platform
+
+**Production-Ready Multi-Agent System | 2024**
+
+- Enterprise multi-agent platform with supervisor architecture and ROI measurement for content generation
+- Implemented Phase 5 Quality & Metrics system demonstrating >300% ROI capability
+- Built production infrastructure with Prometheus monitoring, Grafana dashboards, circuit breakers, and Redis session management
+- Integrated MCP server support with OAuth2/JWT authentication for Cisco Circuit platform
+- Production-approved with comprehensive fault tolerance and exponential backoff retry logic
+- **Technologies:** Python, LangChain, FastAPI, Redis, Prometheus, Grafana, Docker, OAuth2
+
+### Harbor Elements Svelte
+
+**TypeScript Compiler for Design System Components | 2024**
+
+- Automated build tool that transforms Cisco Harbor Web Components into strongly-typed Svelte components
+- Generates Svelte 5 runes, snippets for slots, and provides full IDE autocomplete support
+- Processes Stencil documentation to create type-safe wrappers with zero-configuration integration
+- Enables seamless adoption of Harbor Design System across SvelteKit applications
+- **Technologies:** TypeScript, Node.js, Svelte 5, Web Components, Stencil
+
+### CDT Transform App
+
+**Document Processing & Deployment Tool | 2023-2024**
+
+- Internal build tool that converts DOCX files into deployment-ready HTML packages
+- Parses document structure, extracts content sections, images, and videos automatically
+- Packages all assets into optimized HTML format with bundled resources for easy deployment
+- Streamlined content publishing workflow for technical documentation teams
+- **Technologies:** SvelteKit, Node.js, TypeScript, HTML Parser, File Processing
+- **Live:** https://cdt-transformer-app-v1-converter.cisco.com/
+
+### SMBDev API Server
+
+**Web Scraping & Documentation Management | 2023**
+
+- Full-stack application for scraping and managing Cisco product documentation articles
+- FastAPI backend with SvelteKit frontend for efficient content aggregation and organization
+- Automated data extraction from multiple documentation sources
+- **Technologies:** SvelteKit, FastAPI, Python, TypeScript, BeautifulSoup
+
+### Hardened Node Alpine
+
+**Security-Compliant Docker Base Image | 2023**
+
+- PSB SEC-509-CA compliant Alpine Linux container for enterprise Node.js applications
+- Node.js compiled against Cisco Core CA Bundle for secure connections to Cisco infrastructure
+- Minimal footprint hardened image based on Cloud9 containers
+- Enables secure deployment meeting Cisco's strict security requirements
+- **Technologies:** Docker, Alpine Linux, Node.js, Security, DevOps
+
+### DevOps Automation Suite (CodeShift)
+
+**CI/CD Pipeline & Deployment Tools | 2022-Present**
+
+- Streamlined deployment processes with automated testing, monitoring, and rollback capabilities
+- Built CI/CD pipelines reducing deployment time by 35% and improving reliability
+- Integrated with OpenShift, Jenkins, CloudBees, and GitHub Actions
+- **Technologies:** Docker, GitHub Actions, Jenkins, CloudBees, Python, OpenShift CAE, Kubernetes
+
+---
+
 ## Additional Information
 
 - **Military Service:** U.S. Marine Corps, Database and Network Administrator (2011-2018)

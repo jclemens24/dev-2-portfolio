@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Message } from '$lib/types';
 
-	import UserMessage from './UserMessage.svelte';
 	import AssistantMessage from './AssistantMessage.svelte';
+	import UserMessage from './UserMessage.svelte';
 
 	type Props = {
 		message: Message;

@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { fade } from 'svelte/transition';
+
 	import FloatingBackground from '$lib/components/common/FloatingBackground.svelte';
+
 	import GitHub from '../icons/GitHub.svelte';
 
 	// Icon SVGs as inline components for better control
@@ -43,7 +45,7 @@
 	}
 </script>
 
-<section id="home">
+<section id="home" data-testid="home-section">
 	<div
 		class="relative mt-12 flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 md:mt-0"
 	>
@@ -54,6 +56,7 @@
 			{#if visible}
 				<div in:customFade={{ duration: 800, delay: 200 }}>
 					<h1
+						data-testid="home-header"
 						class="mb-6 bg-linear-to-r from-sky-200 to-blue-400 bg-clip-text text-5xl font-bold text-transparent md:text-7xl"
 					>
 						Jordan Clemens
@@ -90,7 +93,10 @@
 							<a href="https://github.com/jclemens24" class="group glass rounded-2xl p-3">
 								<GitHub className="size-6" />
 							</a>
-							<a href="https://linkedin.com/in/jclemens24" class="group glass rounded-2xl p-3">
+							<a
+								href="https://www.linkedin.com/in/jordan-m-clemens/"
+								class="group glass rounded-2xl p-3"
+							>
 								{@html LinkedinLogoIcon}
 							</a>
 							<button

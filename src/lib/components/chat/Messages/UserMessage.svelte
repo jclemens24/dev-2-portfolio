@@ -1,13 +1,13 @@
 <script lang="ts">
+	import Tooltip from '$lib/components/common/Tooltip.svelte';
+	import Copy from '$lib/components/icons/Copy.svelte';
+	import User from '$lib/components/icons/User.svelte';
 	import type { Message } from '$lib/types';
+	import { formatTimestamp } from '$lib/utils';
 	import dayjs from 'dayjs';
 	import isToday from 'dayjs/plugin/isToday';
 	import isYesterday from 'dayjs/plugin/isYesterday';
 	import localizedFormat from 'dayjs/plugin/localizedFormat';
-	import { formatTimestamp } from '$lib/utils';
-	import User from '$lib/components/icons/User.svelte';
-	import Copy from '$lib/components/icons/Copy.svelte';
-	import Tooltip from '$lib/components/common/Tooltip.svelte';
 
 	type Props = {
 		message: Message;

@@ -1,10 +1,11 @@
-import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-import type { BaseMessageLike } from '@langchain/core/messages';
-import { ChatOpenAI } from '@langchain/openai';
-import { HumanMessage, SystemMessage, AIMessage } from '@langchain/core/messages';
 import { PRIVATE_OPENAI_API_KEY } from '$env/static/private';
 import resume from '$lib/data/resume.md?raw';
+import type { BaseMessageLike } from '@langchain/core/messages';
+import { AIMessage, HumanMessage, SystemMessage } from '@langchain/core/messages';
+import { ChatOpenAI } from '@langchain/openai';
+import { json } from '@sveltejs/kit';
+
+import type { RequestHandler } from './$types';
 
 // The resume is imported at build time and cached in memory
 // This is the most performant approach - zero file system reads at runtime

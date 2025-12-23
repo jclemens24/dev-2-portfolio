@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onDestroy, type Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
+
+	import { type Snippet, onDestroy } from 'svelte';
 
 	type Props = {
 		show?: boolean;

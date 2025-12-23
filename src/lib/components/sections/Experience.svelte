@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { Colors } from '$lib/types';
+
 	import GlassCard from '../common/GlassCard.svelte';
-	import ShoppingBag from '../icons/ShoppingBag.svelte';
 	import Building from '../icons/Building.svelte';
 	import Calendar from '../icons/Calendar.svelte';
 	import Location from '../icons/Location.svelte';
+	import ShoppingBag from '../icons/ShoppingBag.svelte';
 
 	type Experience = {
 		title: string;
@@ -16,12 +17,14 @@
 		endDate: string;
 		color?: Colors;
 		responsibilities: string[];
+		testid?: string;
 	};
 
 	const experiences: Experience[] = [
 		{
 			title: 'Full Stack Developer',
 			company: 'Cisco Systems',
+			testid: 'cisco',
 			type: 'Full-time',
 			typeColor: 'blue',
 			location: 'San Jose, CA',
@@ -38,6 +41,7 @@
 		{
 			title: 'Front-End Developer',
 			company: 'AccruePartners',
+			testid: 'accrue-partners',
 			type: 'Contract',
 			typeColor: 'purple',
 			location: 'Remote',
@@ -54,6 +58,7 @@
 		{
 			title: 'Operations Manager',
 			company: 'U.S. Marine Corps',
+			testid: 'marine-corps',
 			type: 'Active Duty',
 			typeColor: 'green',
 			location: 'San Diego, CA',
@@ -131,7 +136,9 @@
 									<!-- Company -->
 									<div class="mb-3 flex items-center gap-2">
 										<Building className="h-4 w-4 text-gray-400" />
-										<p class="font-semibold text-{exp.color}-400">{exp.company}</p>
+										<p data-testid={exp.testid} class="font-semibold text-{exp.color}-400">
+											{exp.company}
+										</p>
 									</div>
 
 									<!-- Date and Location -->

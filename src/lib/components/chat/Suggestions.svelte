@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
+
+	import { onMount } from 'svelte';
 
 	type Props = {
 		handlePromptClick: (prompt: string) => Promise<void>;

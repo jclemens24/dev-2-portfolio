@@ -1,14 +1,20 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import type { Colors } from '$lib/types';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		children: Snippet;
 		class?: string;
 		hoverColor?: Colors;
+		testid?: string;
 	}
 
-	let { children, class: className = '', hoverColor = 'purple' }: Props = $props();
+	let {
+		children,
+		class: className = '',
+		hoverColor = 'purple',
+		testid = undefined
+	}: Props = $props();
 
 	const hoverColors = {
 		purple: 'hover:border-purple-500/30',
@@ -25,6 +31,7 @@
 </script>
 
 <div
+	{...testid ? { 'data-testid': testid } : {}}
 	class="group glass rounded-2xl border border-white/10 p-6 transition-all duration-300 {hoverColors[
 		hoverColor
 	]} {className}"

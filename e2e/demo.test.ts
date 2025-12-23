@@ -2,12 +2,12 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Portfolio Website', () => {
 	test.beforeEach(async ({ page }) => {
-		await page.goto('/');
+		await page.goto('http://localhost:4173');
 	});
 
 	test('home page loads successfully', async ({ page }) => {
-		await expect(page).toHaveTitle(/Jordan Clemens/i);
-		await expect(page.locator('h1')).toBeVisible();
+		await expect(page).toHaveTitle(/Jordan Clemens \| Software Engineer/i);
+		await expect(page.getByTestId('home-header')).toBeVisible();
 	});
 
 	test('navigation bar is visible and functional', async ({ page }) => {
@@ -15,13 +15,10 @@ test.describe('Portfolio Website', () => {
 		const navbar = page.locator('nav');
 		await expect(navbar).toBeVisible();
 
-		// Check all navigation links are present
-		await expect(page.getByRole('button', { name: /home/i })).toBeVisible();
-		await expect(page.getByRole('button', { name: /about/i })).toBeVisible();
-		await expect(page.getByRole('button', { name: /experience/i })).toBeVisible();
-		await expect(page.getByRole('button', { name: /projects/i })).toBeVisible();
-		await expect(page.getByRole('button', { name: /achievements/i })).toBeVisible();
-		await expect(page.getByRole('button', { name: /contact/i })).toBeVisible();
+		const testids = ['home', 'about', 'experience', 'projects', 'achievements', 'contact'];
+		for (const id of testids) {
+			await expect(page.getByTestId(id)).toBeVisible();
+		}
 	});
 
 	test('all main sections are present', async ({ page }) => {
@@ -37,64 +34,137 @@ test.describe('Portfolio Website', () => {
 
 	test('smooth scroll navigation works', async ({ page }) => {
 		// Click About button
-		await page.getByRole('button', { name: /about/i }).click();
-		await page.waitForTimeout(1000); // Wait for smooth scroll
+		await page.getByTestId('about-section').click();
+		await page.waitForTimeout(2000);
 
 		// Check if About section is in viewport
 		const aboutSection = page.locator('#about');
 		await expect(aboutSection).toBeInViewport();
+
+		await page.getByTestId('skills').click();
+		await page.waitForTimeout(2000);
+
+		// Check if Skills section is in viewport
+		const skillsSection = page.locator('#skills');
+		await expect(skillsSection).toBeInViewport();
+
+		await page.getByTestId('experience').click();
+		await page.waitForTimeout(2000);
+
+		// Check if Experience section is in viewport
+		const experienceSection = page.locator('#experience');
+		await expect(experienceSection).toBeInViewport();
+
+		await page.getByTestId('projects').click();
+		await page.waitForTimeout(2000);
+
+		// Check if Projects section is in viewport
+		const projectsSection = page.locator('#projects');
+		await expect(projectsSection).toBeInViewport();
+
+		await page.getByTestId('achievements').click();
+		await page.waitForTimeout(2000);
+
+		// Check if Achievements section is in viewport
+		const achievementsSection = page.locator('#achievements');
+		await expect(achievementsSection).toBeInViewport();
+
+		await page.getByTestId('contact').click();
+		await page.waitForTimeout(2000);
+
+		// Check if Contact section is in viewport
+		const contactSection = page.locator('#contact');
+		await expect(contactSection).toBeInViewport();
 	});
 
 	test('About section displays education and resume', async ({ page }) => {
 		await page.locator('#about').scrollIntoViewIfNeeded();
 
 		// Check for education content
-		await expect(page.getByText(/Penn State/i)).toBeVisible();
-		await expect(page.getByText(/Information Sciences/i)).toBeVisible();
-		await expect(page.getByText(/3.85/i)).toBeVisible();
+		await expect(page.getByTestId('education-institution')).toBeVisible();
+		await expect(page.getByTestId('education-degree')).toBeVisible();
+		await expect(page.getByTestId('gpa')).toBeVisible();
 
 		// Check resume buttons exist
-		await expect(page.getByRole('button', { name: /download/i })).toBeVisible();
-		await expect(page.getByRole('button', { name: /preview/i })).toBeVisible();
+		await expect(page.getByTestId('download-resume')).toBeVisible();
+		await expect(page.getByTestId('preview-resume')).toBeVisible();
 	});
 
 	test('Skills section displays all skill categories', async ({ page }) => {
 		await page.locator('#skills').scrollIntoViewIfNeeded();
 
-		// Check for skill category headers
-		await expect(page.getByText(/Frontend Development/i)).toBeVisible();
-		await expect(page.getByText(/Backend Development/i)).toBeVisible();
-		await expect(page.getByText(/AI & Machine Learning/i)).toBeVisible();
-		await expect(page.getByText(/DevOps & Cloud/i)).toBeVisible();
-		await expect(page.getByText(/Testing & Quality/i)).toBeVisible();
+		const testids = [
+			'frontend-development',
+			'backend-development',
+			'ai-machine-learning',
+			'devops-tools',
+			'testing-quality',
+			'design-ux'
+		];
+
+		for (const id of testids) {
+			await expect(page.getByTestId(id)).toBeVisible();
+		}
 	});
 
 	test('Experience section shows timeline', async ({ page }) => {
 		await page.locator('#experience').scrollIntoViewIfNeeded();
 
-		// Check for company names
-		await expect(page.getByText(/Cisco/i)).toBeVisible();
-		await expect(page.getByText(/AccruePartners/i)).toBeVisible();
-		await expect(page.getByText(/U\.?S\.? Marine Corps/i)).toBeVisible();
+		const testids = ['cisco', 'accrue-partners', 'marine-corps'];
+
+		for (const id of testids) {
+			await expect(page.getByTestId(id)).toBeVisible();
+		}
 	});
 
 	test('Projects section displays projects', async ({ page }) => {
 		await page.locator('#projects').scrollIntoViewIfNeeded();
 
-		// Check section header
-		await expect(page.getByRole('heading', { name: /projects/i })).toBeVisible();
+		// Check featured projects are visible
+		const featuredProjects = [
+			'featured-project-spanning-content-tree',
+			'featured-project-portfolio-website',
+			'featured-project-typeorm-fastify-plugin'
+		];
 
-		// Check for project links (GitHub icons should be present)
-		const githubLinks = page.locator('a[href*="github"]');
+		for (const id of featuredProjects) {
+			await expect(page.getByTestId(id)).toBeVisible();
+		}
+
+		// Check other projects are visible
+		const otherProjects = [
+			'other-project-hardware-installation-guide',
+			'other-project-devops-automation-suite'
+		];
+
+		for (const id of otherProjects) {
+			await expect(page.getByTestId(id)).toBeVisible();
+		}
+
+		// Check that project links exist
+		const githubLinks = page.getByTestId('project-github-link');
 		expect(await githubLinks.count()).toBeGreaterThan(0);
+
+		const liveLinks = page.getByTestId('project-live-link');
+		expect(await liveLinks.count()).toBeGreaterThan(0);
 	});
 
 	test('Achievements section displays patent and medal', async ({ page }) => {
 		await page.locator('#achievements').scrollIntoViewIfNeeded();
 
-		// Check for achievements
-		await expect(page.getByText(/U\.?S\.? Patent/i)).toBeVisible();
-		await expect(page.getByText(/Navy Achievement Medal/i)).toBeVisible();
+		// Check both achievement cards are visible
+		await expect(page.getByTestId('achievement-patent')).toBeVisible();
+		await expect(page.getByTestId('achievement-award')).toBeVisible();
+
+		// Check achievement titles
+		const achievementTitles = page.getByTestId('achievement-title');
+		expect(await achievementTitles.count()).toBe(2);
+
+		// Check other recognitions section
+		await expect(page.getByTestId('other-recognitions')).toBeVisible();
+		await expect(page.getByTestId('recognition-deans-list')).toBeVisible();
+		await expect(page.getByTestId('recognition-gpa')).toBeVisible();
+		await expect(page.getByTestId('recognition-excellence')).toBeVisible();
 	});
 
 	test('Contact form is functional', async ({ page }) => {
@@ -102,13 +172,13 @@ test.describe('Portfolio Website', () => {
 
 		// Check form fields exist
 		await expect(page.getByLabel(/name/i)).toBeVisible();
-		await expect(page.getByLabel(/email/i)).toBeVisible();
+		await expect(page.getByTestId('email-label')).toBeVisible();
 		await expect(page.getByLabel(/subject/i)).toBeVisible();
 		await expect(page.getByLabel(/message/i)).toBeVisible();
 
 		// Fill out form
 		await page.getByLabel(/name/i).fill('Test User');
-		await page.getByLabel(/email/i).fill('test@example.com');
+		await page.getByTestId('email-label').fill('test@example.com');
 		await page.getByLabel(/subject/i).fill('Test Subject');
 		await page.getByLabel(/message/i).fill('This is a test message.');
 
@@ -121,9 +191,9 @@ test.describe('Portfolio Website', () => {
 		await page.locator('#contact').scrollIntoViewIfNeeded();
 
 		// Check for social media links
-		const emailLink = page.locator('a[href^="mailto:"]');
-		const githubLink = page.locator('a[href*="github.com"]');
-		const linkedinLink = page.locator('a[href*="linkedin.com"]');
+		const emailLink = page.getByTestId('social-link-email').first();
+		const githubLink = page.getByTestId('social-link-github').first();
+		const linkedinLink = page.getByTestId('social-link-linkedin').first();
 
 		await expect(emailLink).toBeVisible();
 		await expect(githubLink).toBeVisible();
@@ -138,27 +208,29 @@ test.describe('Portfolio Website', () => {
 		await expect(footer).toBeVisible();
 
 		// Check for copyright text
-		await expect(footer.getByText(/Jordan Clemens/i)).toBeVisible();
-		await expect(footer.getByText(/SvelteKit/i)).toBeVisible();
+		await expect(footer.getByTestId('footer-name')).toBeVisible();
+		await expect(footer.getByTestId('footer-sveltekit')).toBeVisible();
 	});
 
 	test('responsive design works on mobile', async ({ page }) => {
 		// Set mobile viewport
 		await page.setViewportSize({ width: 375, height: 667 });
-		await page.goto('/');
+		await page.getByTestId('home').click();
 
 		// Check if navbar is still functional
 		await expect(page.locator('nav')).toBeVisible();
 
 		// Check if sections stack properly
 		await expect(page.locator('#home')).toBeVisible();
-		await expect(page.locator('#about')).toBeVisible();
+		const aboutSection = page.locator('#about');
+		await aboutSection.scrollIntoViewIfNeeded();
+		await expect(aboutSection).toBeVisible();
 	});
 
 	test('resume download link works', async ({ page }) => {
 		await page.locator('#about').scrollIntoViewIfNeeded();
 
-		const downloadButton = page.getByRole('button', { name: /download/i });
+		const downloadButton = page.getByTestId('download-resume');
 		await expect(downloadButton).toBeVisible();
 
 		// Check if button is clickable (don't actually download in test)
@@ -183,19 +255,14 @@ test.describe('Portfolio Website', () => {
 });
 
 test.describe('AI Chat Assistant', () => {
-	test.beforeEach(async ({ page }) => {
-		await page.goto('/');
-	});
-
 	test('chat interface is accessible', async ({ page }) => {
 		// Check if chat component exists (might be in a modal or sidebar)
 		// Adjust selectors based on your actual implementation
 		const chatContainer = page.locator('[class*="chat"]').first();
-		
+
 		// If chat is always visible
 		if (await chatContainer.isVisible()) {
 			await expect(chatContainer).toBeVisible();
 		}
 	});
 });
-

@@ -14,13 +14,13 @@
 		},
 		{
 			name: 'LinkedIn',
-			href: 'https://linkedin.com/in/jordan-clemens',
+			href: 'https://www.linkedin.com/in/jordan-m-clemens/',
 			icon: Linkedin,
 			label: 'Connect on LinkedIn'
 		},
 		{
 			name: 'Email',
-			href: 'mailto:jclemens@hey.com',
+			href: 'mailto:jordanclemens1986@gmail.com',
 			icon: Mail,
 			label: 'Send me an email'
 		}
@@ -74,7 +74,7 @@
 						<span class="text-2xl font-bold text-white">JC</span>
 					</div>
 					<div>
-						<h3 class="text-xl font-bold text-white">Jordan Clemens</h3>
+						<h3 data-testid="footer-name" class="text-xl font-bold text-white">Jordan Clemens</h3>
 						<p class="text-sm text-gray-400">Software Engineer</p>
 					</div>
 				</div>
@@ -136,7 +136,7 @@
 			<div class="flex items-center gap-4">
 				<span class="flex items-center gap-2">
 					Built with
-					<span class="text-purple-400">SvelteKit</span>
+					<span data-testid="footer-sveltekit" class="text-purple-400">SvelteKit</span>
 					&
 					<span class="text-blue-400">Tailwind CSS</span>
 				</span>

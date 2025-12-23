@@ -1,7 +1,8 @@
 import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-import { PDFParse } from 'pdf-parse';
 import mammoth from 'mammoth';
+import { PDFParse } from 'pdf-parse';
+
+import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
