@@ -68,7 +68,7 @@
 		},
 		{
 			name: 'LinkedIn',
-			href: 'https://linkedin.com/in/jordan-clemens',
+			href: 'https://linkedin.com/in/jordan-m-clemens',
 			icon: Linkedin,
 			label: 'Jordan Clemens',
 			color: 'cyan'
