@@ -60,13 +60,13 @@
 		"vitest-browser-svelte": "^2.0.1"
 	},
 	"dependencies": {
-		"@langchain/core": "^1.1.6",
+		"@langchain/core": "^1.1.8",
 		"@langchain/openai": "^1.2.0",
 		"@node-rs/argon2": "^2.0.2",
 		"bits-ui": "^2.14.4",
 		"dayjs": "^1.11.19",
 		"dompurify": "^3.3.1",
-		"langchain": "^1.2.1",
+		"langchain": "^1.2.3",
 		"mammoth": "^1.11.0",
 		"marked": "^17.0.1",
 		"pdf-parse": "^2.4.5",
