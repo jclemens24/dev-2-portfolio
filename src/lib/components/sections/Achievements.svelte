@@ -24,7 +24,7 @@
 			description:
 				'Awarded patent for innovative AI-powered platform architecture that revolutionizes how engineers interact with technical documentation.',
 			highlights: [
-				'Serves 10,000+ engineers daily at Cisco Systems',
+				'Serves 1,000+ engineers daily at Cisco Systems',
 				'Leverages LangChain, OpenAI, and RAG architecture',
 				'85% improvement in documentation query accuracy',
 				'Reduced information retrieval time by 70%'

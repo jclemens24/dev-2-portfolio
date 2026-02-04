@@ -122,8 +122,8 @@
 									id="name"
 									bind:value={formData.name}
 									required
-									class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
-									placeholder="John Doe"
+									class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-600 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+									placeholder="Joe Code"
 								/>
 							</div>
 
@@ -141,8 +141,8 @@
 									id="email"
 									bind:value={formData.email}
 									required
-									class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
-									placeholder="john@example.com"
+									class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 placeholder-gray-600 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+									placeholder="joeycodes@example.com"
 								/>
 							</div>
 						</div>
@@ -157,7 +157,7 @@
 								id="subject"
 								bind:value={formData.subject}
 								required
-								class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+								class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-600 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
 								placeholder="Project Inquiry"
 							/>
 						</div>
@@ -172,7 +172,7 @@
 								bind:value={formData.message}
 								required
 								rows="6"
-								class="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
+								class="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-600 backdrop-blur-sm transition-all duration-300 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
 								placeholder="Tell me about your project or inquiry..."
 							></textarea>
 						</div>

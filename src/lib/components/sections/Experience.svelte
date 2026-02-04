@@ -56,7 +56,7 @@
 			]
 		},
 		{
-			title: 'Operations Manager',
+			title: 'Data Analyst',
 			company: 'U.S. Marine Corps',
 			testid: 'marine-corps',
 			type: 'Active Duty',
@@ -66,10 +66,11 @@
 			endDate: 'Mar 2018',
 			color: 'green',
 			responsibilities: [
-				'Led teams of 15-30 personnel in high-pressure operational environments',
-				'Managed logistics and coordination for complex multi-million dollar operations',
-				'Developed leadership and problem-solving skills applicable to technical project management',
-				'Earned multiple commendations for exceptional performance and team leadership'
+				'Served as F-18 Automated Maintenance Environment (FAME) Supervisor, overseeing engine lifecycle tracking and post-flight wear analysis systems',
+				'Taught technical training courses to Marines on FAME software and aircraft maintenance data management',
+				'Maintained comprehensive aircraft maintenance records and managed NALCOMIS user base administration',
+				'Built custom SQL queries to analyze maintenance data and generate operational reports for leadership',
+				'Managed Special Maintenance Qualifications (SMQ) database and personnel certifications'
 			]
 		}
 	];
@@ -113,7 +114,7 @@
 				<div class="relative">
 					<!-- Timeline Dot (desktop only) -->
 					<div
-						class="absolute top-8 left-4.25 z-10 hidden h-4 w-4 rounded-full border-2 border-[#0a0118] bg-linear-to-r from-{exp.color}-500 to-cyan-500 md:block"
+						class="absolute top-8 left-4.25 z-10 hidden h-4 w-4 rounded-full border-2 border-[#0a0118] bg-linear-to-r from-green-500 to-cyan-500 md:block"
 					></div>
 
 					<!-- Experience Card -->
@@ -124,7 +125,7 @@
 								<div class="flex-1">
 									<!-- Title and Badge -->
 									<div class="mb-3 flex flex-wrap items-center gap-3">
-										<ShoppingBag className="h-5 w-5 text-{exp.color}-400" />
+										<ShoppingBag className={`h-5 w-5 text-${exp.color}-400`} />
 										<h3 class="text-xl font-bold text-white">{exp.title}</h3>
 										<span
 											class="rounded-full border border-{exp.typeColor}-400/30 bg-{exp.typeColor}-500/20 px-3 py-1 text-xs font-medium text-muted-foreground"
@@ -134,7 +135,7 @@
 									</div>
 
 									<!-- Company -->
-									<div class="mb-3 flex items-center gap-2">
+									<div class="mb-3 flex items-center gap-3">
 										<Building className="h-4 w-4 text-gray-400" />
 										<p data-testid={exp.testid} class="font-semibold text-{exp.color}-400">
 											{exp.company}
@@ -145,7 +146,7 @@
 									<div
 										class="flex flex-col gap-3 text-sm text-gray-400 sm:flex-row sm:items-center sm:gap-6"
 									>
-										<div class="flex items-center gap-2 text-muted-foreground">
+										<div class="flex items-center gap-3 text-muted-foreground">
 											<Calendar className="h-4 w-4" />
 											<span>{exp.startDate} – {exp.endDate}</span>
 										</div>
