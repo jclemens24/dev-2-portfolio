@@ -24,8 +24,16 @@
 			description:
 				'AI-Driven Generation and Automation of Targeted Network Support Content for Enhanced Engineer Productivity.',
 			longDescription:
-				'Built on top OpenWebUI with LangChain, OpenAI, and RAG architecture. Earned U.S. Patent C/P/1042312/US/UTL/1',
-			technologies: ['SvelteKit', 'FastAPI', 'LangChain', 'OpenAI', 'Pinecone', 'PostgreSQL'],
+				'Architected a supervisor-based multi-agent workflow using LangChain, where a supervisor agent orchestrates specialized sub-agents for content planning, drafting, and quality review — enabling parallel task execution and dynamic routing across the pipeline. Built on OpenWebUI with RAG architecture over Pinecone vector stores and PostgreSQL. Earned U.S. Patent C/P/1042312/US/UTL/1.',
+			technologies: [
+				'SvelteKit',
+				'FastAPI',
+				'LangChain',
+				'OpenAI',
+				'Pinecone',
+				'PostgreSQL',
+				'Multi-Agent'
+			],
 			category: 'AI/ML',
 			categoryColor: 'cyan',
 			featured: true,
@@ -149,6 +157,42 @@
 			category: 'DevOps',
 			categoryColor: 'orange',
 			githubUrl: 'https://github.com/jorcleme/hardened-node-alpine',
+			featured: false
+		},
+		{
+			title: 'Cisco Icons Core',
+			description:
+				'Framework-agnostic SVG icon library — 2000+ Phosphor and Cisco branded icons as tree-shakeable ES modules.',
+			longDescription:
+				'Raw SVG strings published to GitHub Packages, importable in any framework or vanilla JS. Ships Phosphor Icons in 6 weights (thin, light, regular, bold, fill, duotone) plus Cisco branded product icons, fully typed with TypeScript. Serves as the canonical icon source powering cisco-icons-svelte and cisco-icons-react.',
+			technologies: ['TypeScript', 'SVG', 'ESM', 'GitHub Packages', 'Tree-shaking'],
+			category: 'Open Source',
+			categoryColor: 'green',
+			githubUrl: 'https://github.com/jorcleme/cisco-icons-core',
+			featured: false
+		},
+		{
+			title: 'Cisco Icons Svelte',
+			description:
+				'Native Svelte 5 component library wrapping cisco-icons-core — full Phosphor + Cisco icon catalog with a single install.',
+			longDescription:
+				'Idiomatic Svelte 5 icon components with typed props and SSR compatibility via SvelteKit. Abstracts away raw SVG string handling so Cisco devs get a clean <Icon /> API with autocomplete across all 2000+ icons.',
+			technologies: ['Svelte 5', 'TypeScript', 'SvelteKit', 'SSR', 'GitHub Packages'],
+			category: 'Open Source',
+			categoryColor: 'orange',
+			githubUrl: 'https://github.com/jorcleme/cisco-icons-svelte',
+			featured: false
+		},
+		{
+			title: 'Cisco Icons React',
+			description:
+				'Native React component library wrapping cisco-icons-core — full Phosphor + Cisco icon catalog with a single install.',
+			longDescription:
+				'Idiomatic React icon components with typed props, forwardRef support, and zero configuration. Cisco devs get a clean <Icon /> API with tree-shaking and full TypeScript autocomplete across all 2000+ icons, compatible with Next.js and Vite.',
+			technologies: ['React', 'TypeScript', 'Next.js', 'GitHub Packages', 'Tree-shaking'],
+			category: 'Open Source',
+			categoryColor: 'blue',
+			githubUrl: 'https://github.com/jorcleme/cisco-icons-react',
 			featured: false
 		}
 	]);
