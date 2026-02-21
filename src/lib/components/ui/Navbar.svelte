@@ -34,12 +34,12 @@
 <nav class="sticky top-0 right-0 left-0 z-50 w-full">
 	<div class="flex glass items-center justify-between border-none px-5 py-2.5">
 		<!-- Desktop Navigation - Hidden on small screens -->
-		<div class="hidden items-center gap-0.5 md:flex">
+		<div class="hidden items-center gap-1 md:flex">
 			{#each btns as btn, i (i)}
 				<button
 					data-testid={btn.name}
 					onclick={async () => await scrollToSection(btn.href)}
-					class="group relative rounded-full font-roboto text-sm text-white/70 capitalize transition-all duration-300 hover:bg-white/10"
+					class="group relative rounded-full px-3 py-1.5 font-roboto text-sm text-white/70 capitalize transition-all duration-300 hover:bg-white/10"
 				>
 					{btn.name}
 				</button>
