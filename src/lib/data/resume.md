@@ -3,7 +3,7 @@
 ## Software Developer | AI & Full-Stack Engineer
 
 455 Genoa Road, Dudley, NC 28333 | (910) 431-4084 | <jordanclemens1986@gmail.com>  
-[LinkedIn](https://www.linkedin.com/in/jordan-clemens-b3948b97/) | [Portfolio](https://jordanclemens.netlify.app/)
+[LinkedIn](https://www.linkedin.com/in/jordan-clemens-b3948b97/) | [Portfolio](https://jordan-clemens-dev.netlify.app/)
 
 ---
 
@@ -72,7 +72,7 @@ Creative and results-driven Software Developer with 7+ years of experience desig
 
 ## Professional Experience
 
-### Web Developer | Cisco Systems
+### Software Engineer | Cisco Systems
 
 **San Jose, CA | August 2022 – Present**
 
@@ -88,7 +88,7 @@ Creative and results-driven Software Developer with 7+ years of experience desig
 **Patent No.:** C/P/1042312/US/UTL/1  
 Enables real-time, automated, and context-aware generation of support content for enterprise networks using generative AI, including actionable guided tasks and configuration automation.
 
-### Front-End Web Developer | AccruePartners
+### Front-End Developer | AccruePartners
 
 **Remote – Wilmington, NC | December 2020 – March 2022**
 
@@ -140,9 +140,19 @@ Coffee E-Commerce Web App (Lead Developer)
 
 ## Additional Projects
 
+### Cisco SMB Wiki Platform
+
+**Internal Knowledge Management System | 2026**
+
+- Designed and implemented a multi-agent knowledge management platform for Cisco SMB teams
+- Developed a modular architecture with agent-based content generation and retrieval, improving internal documentation efficiency by 50%
+- Implemented advanced search and indexing features using Elasticsearch and Redis for fast content retrieval
+- Integrated AI-driven content summarization and recommendation engine to enhance user experience
+- **Technologies:** JS/TS, Hono, SvelteKit, Elasticsearch, Redis, Docker, Node.js, LangChain, Langgraph
+
 ### SMB Agent Platform
 
-**Production-Ready Multi-Agent System | 2024**
+**Production-Ready Multi-Agent System | 2025**
 
 - Enterprise multi-agent platform with supervisor architecture and ROI measurement for content generation
 - Implemented Phase 5 Quality & Metrics system demonstrating >300% ROI capability

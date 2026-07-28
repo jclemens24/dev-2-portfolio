@@ -263,8 +263,8 @@
 						tabindex="0"
 						onclick={() => {
 							const link = document.createElement('a');
-							link.href = '/Jordan_Clemens_Resume_2025.pdf';
-							link.download = 'Jordan_Clemens_Resume_2025.pdf';
+							link.href = '/Jordan_Clemens_Resume_ATS.docx';
+							link.download = 'Jordan_Clemens_Resume_ATS.docx';
 							document.body.appendChild(link);
 							link.click();
 							document.body.removeChild(link);
@@ -306,7 +306,7 @@
 				{#if files.length > 0}
 					<div class="border-b border-white/10 p-3">
 						<div class="flex flex-wrap gap-2">
-							{#each files as file, i}
+							{#each files as file, i (i)}
 								<div
 									class="flex items-center gap-2 rounded-lg border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-xs text-white/90"
 								>

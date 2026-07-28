@@ -16,15 +16,15 @@
 
 	const downloadResume = () => {
 		const link = document.createElement('a');
-		link.href = '/Jordan_Clemens_Resume_2025.docx';
-		link.download = 'Jordan_Clemens_Resume_2025.docx';
+		link.href = '/Jordan_Clemens_Resume_ATS.docx';
+		link.download = 'Jordan_Clemens_Resume_ATS.docx';
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
 	};
 
 	const previewResume = () => {
-		window.open('/Jordan_Clemens_Resume_2025.pdf', '_blank');
+		window.open('/Jordan_Clemens_Resume_ATS.pdf', '_blank');
 	};
 </script>
 
